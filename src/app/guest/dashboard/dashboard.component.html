@@ -1,0 +1,37 @@
+<nb-card status="warning">
+  <nb-card-header style="display: flex; justify-content: center;">
+    <nb-icon icon="star-outline"></nb-icon> &nbsp;
+    <span *ngFor="let faculty of faculty">{{ faculty.name }}</span> &nbsp;
+    <nb-icon icon="star-outline"></nb-icon>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row " >
+      <div class="col-md-6 col-sm-12">
+        <nb-card  class="info-card">
+          <nb-card-body>
+            <label>Total Contributions</label><br>
+            <h3>{{ numofcons }}</h3>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <nb-card class="info-card">
+          <nb-card-body>
+            <label>Percent of Contributions</label><br>
+            <h3 type="number" maxlength="3">{{ percent }}%</h3>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+    </nb-card-body>
+</nb-card>
+
+<!-- Chart -->
+<nb-card status="primary">
+  <nb-card-header style="display: flex; justify-content: center;">
+    DATA CHART
+  </nb-card-header>
+  <div id="divChart">
+    <canvas id="myChart"></canvas>
+  </div>
+</nb-card>

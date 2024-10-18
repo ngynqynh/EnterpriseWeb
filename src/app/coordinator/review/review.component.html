@@ -1,0 +1,18 @@
+
+<nb-card>
+    <nb-card-body>
+
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="All Contributions">
+          <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="navigateToDetail($event)"></ng2-smart-table>
+        </nb-tab>
+        <nb-tab tabTitle="Pending " [badgeText]="numOfP" badgeStatus="danger">
+          <ng2-smart-table [settings]="settings" [source]="pending" (userRowSelect)="navigateToDetail($event)"></ng2-smart-table>
+        </nb-tab>
+        <nb-tab tabTitle="Approved" >
+          <ng2-smart-table [settings]="settings" [source]="approved" (userRowSelect)="navigateToDetail($event)"></ng2-smart-table>
+        </nb-tab>
+      </nb-tabset>
+
+    </nb-card-body>
+</nb-card>

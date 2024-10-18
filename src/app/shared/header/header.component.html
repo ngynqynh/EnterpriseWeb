@@ -1,0 +1,13 @@
+<div class="header-container" *ngFor="let user of user">
+  <nb-actions size="small">
+    <nb-action class="user-action" >
+      <nb-user
+      [nbContextMenu]="userMenu"
+        [name]="user?.name | titlecase"
+        [title]="user?.role | titlecase"
+        nbContextMenuTag="my-context-menu">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>
+

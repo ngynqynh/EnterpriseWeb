@@ -1,0 +1,16 @@
+<nb-card>
+    <nb-card-header>View Detail</nb-card-header>
+    <nb-card-body>
+        <div class="post" *ngFor="let user of user">
+            <!-- <p><strong>Id:</strong> {{ user._id }}</p> -->
+            <p><strong>User Name: </strong>{{ user.username }}</p>
+            <p><strong>Name: </strong>{{ user.name }}</p>
+            <!-- <p><Strong>Faculty id: </Strong>{{ user._facultyId }}</p> -->
+            <p><strong>Role: </strong>{{ user.role }}</p>
+            </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton status="primary" (click)="back()">Back</button>
+  </nb-card-footer>
+</nb-card>
+

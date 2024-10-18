@@ -1,0 +1,59 @@
+
+<nb-card status="primary">
+  <nb-card-header>
+    <nb-icon icon="person-add-outline"></nb-icon>
+  </nb-card-header>
+
+  <nb-alert status="success" closable (close)="onCloseAlert()" *ngIf="isAlert">
+    Create account successfully.
+  </nb-alert>
+        
+    <form id="Form-create" class="form-cr" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Username</label>
+        <input nbInput type="text" #emailInput formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+        
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input nbInput #nameInput type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Password is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input nbInput #passInput type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+        </div>
+      </div>
+
+      <label for="role">Role</label><br>
+      <nb-select #roleSelect formControlName="role" placeholder="Select">
+          <nb-option *ngFor="let item of roleList" [value]="item.role">{{ item.name }}</nb-option>
+      </nb-select><br><br>
+
+      <label for="falcuty">Faculty</label><br>
+      <nb-select #facultySelect placeholder="Select" formControlName="_facultyId" >
+          <nb-option *ngFor="let faculty of facultyList" [value]="faculty">{{ faculty.name }}</nb-option>             
+      </nb-select><br><br>
+
+      <button nbButton status="primary" type="submit" >Create</button>
+                
+    </form>
+  
+</nb-card>
+
+<nb-card>
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="sourceUsers" (delete)="onDeleteButtonClicked($event)"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+

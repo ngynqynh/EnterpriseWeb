@@ -1,0 +1,47 @@
+<nb-card>
+  <nb-card-header *ngFor="let contribution of contributions">Contribution Detail
+  </nb-card-header>
+  <nb-card-body *ngFor="let contribution of contribution">
+    <div *ngFor="let student of student">
+      <label>Student Name:</label> &nbsp;
+      <span>{{student.name}}</span>
+      <nb-action class="control-item" icon="email-outline" [routerLink]="['../../chat', contribution._userId]" style="float: right"></nb-action>
+    </div>
+    <label>File: </label> &nbsp;
+      <a *ngFor="let file of files" href="{{'http://localhost:3000/download/' + studentId + '/' + file.filename}}">{{ file._filename }} <br></a>
+    <label>Submit Date:</label> &nbsp;
+    <span>{{contribution.date | date}}</span><br>
+    <label>Status:</label> &nbsp;
+    <span>{{contribution.status}}</span><br>
+    <label>Automatically reject after:</label>&nbsp;
+    <span>{{showTime}}</span>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="btn" *ngFor="let contribution of contribution">
+    <ng-template [ngIf]="contribution.status === 'Pending'" [ngIfElse]="passButton">
+      <button nbButton status="success" (click)="openApproved()">Approve</button>
+      <button nbButton status="warning" (click)="openNotApproved()">Not Approve</button>
+    </ng-template>
+    <ng-template #passButton>
+      <button nbButton disabled>Approve</button>
+      <button nbButton disabled>Not Approve</button>
+    </ng-template>
+    </div>
+  </nb-card-footer>
+</nb-card>
+<nb-card>
+  <nb-card-header>
+    <div style="display: flex; justify-content: space-between;">
+      Comments
+      <button nbButton status="primary" (click)="openDialogComment()">Add Comment</button>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <nb-card style="background-color:#F2F3F5; border-radius: 1em;" *ngFor="let cmt of cmts">
+      <nb-card-body>
+        <p style="color:grey">{{ cmt.date | date}}</p>
+        <p style="font-weight: bold;">{{ cmt.comment }}</p>
+    </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+</nb-card>

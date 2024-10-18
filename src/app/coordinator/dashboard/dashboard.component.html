@@ -1,0 +1,52 @@
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js">
+  </script> -->
+<nb-card status="warning">
+    <nb-card-header style="display: flex; justify-content: center;">
+      <nb-icon icon="star-outline"></nb-icon> &nbsp;
+      <span *ngFor="let faculty of faculty">{{ faculty.name }}</span> &nbsp;
+      <nb-icon icon="star-outline"></nb-icon>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="row " >
+        <div class="col-md-4 col-sm-12">
+          <nb-card size="tiny" class="info-card">
+            <nb-card-body>
+              <label>Total Contributions</label>
+              <span></span>
+            </nb-card-body>
+          </nb-card>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <nb-card class="info-card" >Thu</nb-card>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <nb-card class="info-card">Thu</nb-card>
+        </div>
+      </div>
+      </nb-card-body>
+</nb-card>
+<!-- Count Contribution -->
+<!-- <nb-card size="medium" status="info">
+
+  <nb-card-header >
+    <span>Contributions</span>
+    <nb-select [selected]="type" (selectedChange)="getCons($event); type = $event">
+      <nb-option *ngFor="let t of types"   [value]="t">{{ t }}</nb-option>
+    </nb-select>
+  </nb-card-header>
+
+  <nb-list class="user-activity-list">
+    <nb-list-item *ngFor="let item of cons" class= "row">
+      <div class="col-md-6 col-sm-12">
+        {{ item.date }}
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <div class="caption">Contribution Count</div>
+        <div class="value" >{{ numOfCon }}</div>
+      </div>
+    </nb-list-item>
+  </nb-list>
+
+</nb-card> -->
+
